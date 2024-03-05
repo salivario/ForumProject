@@ -1,0 +1,11 @@
+<div class="fon"></div>
+  <div style="display: flex; flex-direction: column; min-height: 100%; width: 80%; margin: auto;" class="main-style">
+    <div style="min-height: 75px;"><app-header></app-header></div>
+    <div style="display: flex; flex-direction: row;flex-grow: 1; width: 100%;">
+      <div style="width: 300px; border-right: solid 2px #008000;" *ngIf="isTread"><app-l-section></app-l-section></div>
+      <div style=" flex-grow: 1; width: 100%;"><router-outlet ></router-outlet></div>
+      <div style="width: 300px; border-left: 2px solid #008000;" *ngIf="isTread"><app-r-section></app-r-section></div>
+    </div>
+    <div style="min-height: 75px; bottom: 0; font-size: 12px;"><app-footer></app-footer></div>
+  </div>
+  

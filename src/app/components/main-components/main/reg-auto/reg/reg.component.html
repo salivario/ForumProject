@@ -1,0 +1,17 @@
+<div style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0);">
+    
+    <div style="margin: auto; width: 400px; height: 100%; background-color: rgba(0, 0, 0, 0);">
+        <h1 style="text-align: center;">Registration</h1>
+        <h1 style="text-align: center;">Write your future account information</h1>
+            <form style="display: flex; flex-direction: column; padding-top: 100px; height: 500px" class="form1" [formGroup]="form" (submit)="onSubmit()">
+                <input class="form1" placeholder="nickname" type="text" formControlName="nickname">
+                <p style="font-size: 10px;">Nickname min length 5 symbols, max length 28 symbols!</p>
+                <input class="form1" placeholder="email" type="email" formControlName="email">
+                <input class="form1" placeholder="password" type="password" formControlName="pass">
+                <p style="font-size: 10px;">Password min length 9 symbols, max length 28 symbols!</p>
+                <p *ngIf="passconf">incorrect password confirmation!</p>
+                <input class="form1" placeholder="confirm password" type="password" formControlName="passconf">
+                <input class="form1"  type="submit" placeholder="Submit" [disabled]="form.invalid">
+            </form>
+    </div>
+</div>

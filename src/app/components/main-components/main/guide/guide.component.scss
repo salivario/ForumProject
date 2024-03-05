@@ -1,0 +1,24 @@
+.link:visited{
+    color: #008000;
+}
+.link:visited:hover{
+    color: black;
+}
+.link{
+    color: black;
+}
+.brd{
+    border-top: 1px solid #008000; width: 95%; margin: auto; 
+}
+#hr{
+    border-color: #008000; border-width: 1px;
+}
+.brd:hover{
+    background-color: rgb(16, 196, 16);
+    color: black;
+}
+.brd:hover{
+    .link:visited{
+        color: black;
+    }
+}

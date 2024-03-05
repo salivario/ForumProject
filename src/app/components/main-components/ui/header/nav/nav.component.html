@@ -1,0 +1,14 @@
+<div style="display: flex; flex-direction: row; justify-content: space-between;">
+    <div style="display: flex; flex-direction: row; margin: 5px 0 0 5px;">
+    <div  style="margin-right: 10px;"><a class="link" routerLink="">home</a></div>
+    <div style="margin-right: 10px;">|</div>
+    <div style="margin-right: 10px;"><a class="link" routerLink="profile">profile</a></div>
+    <div style="margin-right: 10px;">|</div>
+    <div ><a class="link" routerLink="help">help us</a></div>
+    </div>
+    <div *ngIf="!isLog" style="display: flex; flex-direction: row; margin: 5px 0 0 5px;">
+        <div><a class="link" routerLink="authorization">Sign in</a></div>
+        <div style="padding-left: 10px;">|</div>
+        <div style="padding-left: 5px; padding-right: 5px;"><a class="link" routerLink="registration">Sign up</a></div>
+    </div>
+</div>

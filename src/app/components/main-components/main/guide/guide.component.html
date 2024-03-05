@@ -1,0 +1,11 @@
+<div style="height: 100%;width: 100%;">
+    <div style="height: 98.5%;width: 100%; margin: auto; margin-top: 20px;">
+        <div *ngFor="let way of ways" style="display: flex; flex-direction: column; " >
+            <div class="brd">
+                <div style="margin-top: 10px;"><a class="link" routerLink="/tredlist" (click)="sendPath(way.name)">→{{way.name}}</a></div>
+                <div><p>{{way.description}}</p></div>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.form1:not(:first-child){
+    margin-top: 20px;
+}
+.form1{
+    height: 30px; font-size: 19px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #008000;
+}
+.form1::placeholder{
+    color: #008000;
+}
+.form1 input{
+    border: #008000 solid 2px;
+    background-color: black;
+    color: #008000;
+}
+input:focus {
+    outline: none;
+  }
+.link:visited{
+    color: #008000;
+}
+.link{
+    color: #008000;
+}
