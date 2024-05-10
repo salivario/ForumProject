@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormObject } from '../interfaces/log/form-object';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -9,9 +9,16 @@ import { BehaviorSubject } from 'rxjs';
 export class IsLogService {
   constructor( private http: HttpClient) { }
   isLog = new BehaviorSubject<boolean>(false)
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
   
   setLog(form: FormObject){
-    this.http.post('http://localhost/forum.com/', form).subscribe(
+    console.log(form)
+    this.http.post('http://localhost/forum.com/index.php', form, this.httpOptions).subscribe(
       (response) => {
         console.log('Успешный ответ от сервера:', response);
         this.isLog.next(true);

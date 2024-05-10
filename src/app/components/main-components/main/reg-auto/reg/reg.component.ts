@@ -14,7 +14,7 @@ export class RegComponent implements OnInit{
   passconf: boolean = false;
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: ['',Validators.required, Validators.minLength(1), Validators.email,Validators.pattern('/^\S+@\S+\.\S+$/')],
+      email: ['',Validators.required, Validators.minLength(1), Validators.email],
       pass: ['',Validators.required, Validators.minLength(8), Validators.maxLength(28)],
       nickname: ['', Validators.required, Validators.minLength(5), Validators.maxLength(28)],
       passconf: ['', Validators.required,]

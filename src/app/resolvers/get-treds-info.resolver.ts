@@ -15,8 +15,8 @@ export class GetTredsInfoResolver implements Resolve<any> {
   constructor(private http: HttpClient, private pathService: PathService, private route: Router){}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     const urlString = '';
-    const theme = this.pathService.getTheme();
-    const urlWithParameters = `${urlString}?theme=${theme}`;
+    const curPath = this.pathService.getTheme();
+    const urlWithParameters = `${urlString}?theme=${curPath}`;
     return this.http.get(urlWithParameters).pipe(
       map((response) => {
         return { success: true, data: response };
