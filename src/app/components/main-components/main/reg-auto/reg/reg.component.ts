@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormObject } from 'src/app/interfaces/log/form-object';
 import { IsLogService } from 'src/app/services/is-log.service';
 
 @Component({
@@ -14,21 +15,21 @@ export class RegComponent implements OnInit{
   passconf: boolean = false;
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: ['',Validators.required, Validators.minLength(1), Validators.email],
-      pass: ['',Validators.required, Validators.minLength(8), Validators.maxLength(28)],
-      nickname: ['', Validators.required, Validators.minLength(5), Validators.maxLength(28)],
-      passconf: ['', Validators.required,]
+      nickname: [],
+      email: [],
+      password: [],
+      passconf: []
 
-    })
+    });
+
   }
   onSubmit(){
-    if(this.form.value.pass !== this.form.value.passconf){
+    if(this.form.value.password !== this.form.value.passconf){
       this.passconf = true
     }
     else{
       delete this.form.value.passconf;
-      this.chngLogService.setLog(this.form.value)
-      this.route.navigate(['/'])
+      this.chngLogService.formdata(this.form.value)
     }
     
   }
