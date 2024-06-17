@@ -1,5 +1,5 @@
 export interface FormObject {
     email: string,
-    pass: string,
+    password: string,
     nickname?: string,
 }

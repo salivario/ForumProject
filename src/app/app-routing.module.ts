@@ -1,3 +1,4 @@
+import { ProfileResolver } from './resolvers/profile.resolver';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GuideComponent } from './components/main-components/main/guide/guide.component';
@@ -14,9 +15,9 @@ import { GetTredsInfoResolver } from './resolvers/get-treds-info.resolver';
 const routes: Routes = [
   {path: '', component: GuideComponent},
   {path: 'registration', component: RegComponent, canActivate: [LogGuardGuard]},
-  {path: 'tredlist', component: TopTreadsComponent, resolve: {getTread: GetTredsInfoResolver}},
+  {path: 'tredlist', component: TopTreadsComponent, resolve: {Tread: GetTredsInfoResolver}},
   {path: 'authorization', component: AutoComponent, canActivate: [LogGuardGuard]},
-  {path: 'profile', component: UserPageComponent, canActivate: [ProfileGuard]},
+  {path: 'profile', component: UserPageComponent, canActivate: [ProfileGuard],resolve: {Profile: ProfileResolver}},
   {path: 'help', component: HelpUsComponent},];
 
 @NgModule({

@@ -1,1 +1,18 @@
-<p>user-page works!</p>
+<div *ngIf="profile$ | async as profile">
+    <div>
+        <div class="avatar"></div>
+        <div>
+            <div class="name">{{ profile.name }}</div>
+            <div class="email">{{ profile.email }}</div>
+        </div>
+    </div>
+    <div>
+        <div class="countOfMessages">
+            {{ profile.countOfMessages }}
+        </div>
+        <div class="countOfTreads">
+            {{ profile.countOfTreads }}
+        </div>
+    </div>
+</div>
+

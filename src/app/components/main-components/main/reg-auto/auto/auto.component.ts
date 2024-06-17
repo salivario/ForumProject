@@ -13,13 +13,12 @@ export class AutoComponent implements OnInit{
   form!: FormGroup
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: ['',Validators.required, Validators.email, Validators.pattern('/^\S+@\S+\.\S+$/')],
-      pass: ['',Validators.required]
+      email: [],
+      password: []
     })
   }
   onSubmit(){
-    this.chngLogService.setLog(this.form.value)
-    this.route.navigate(['/'])
+    this.chngLogService.autorise(this.form.value)
   }
    
 

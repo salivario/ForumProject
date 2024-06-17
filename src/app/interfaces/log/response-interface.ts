@@ -1,3 +1,3 @@
-export interface ResponseInterface {
+export interface RegInterface {
     message: string;
 }
