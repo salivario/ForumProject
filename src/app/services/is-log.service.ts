@@ -6,14 +6,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { RegInterface } from '../interfaces/log/response-interface';
+import { DecoderService } from './decoder.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IsLogService {
-  constructor( private http: HttpClient, private route: Router, private profileService: ProfileService) { }
+  constructor( private http: HttpClient, private route: Router, private profileService: ProfileService, private decoderService: DecoderService) {
+    const token = localStorage.getItem(this.tokenKey);
+    if (token) {
+      this.profileService.setProfile(this.decoderService.decodeJWT(token));
+      this.isLog.next(true);
+      this.route.navigate(['/profile']);
+    }
+   }
   isLog = new BehaviorSubject<boolean>(false)
-  saveform!: FormObject
+  saveform!: FormObject;
+  private tokenKey = 'token';
   formdata(form: FormObject){
     this.saveform = form
     console.log(this.saveform)
@@ -25,16 +34,18 @@ export class IsLogService {
       'Content-Type': 'application/json'
     })
   };
+  isLoggedin(){
+
+  }
   getSaveForm(){
     return this.saveform
   }
   setLog(form: FormObject){
     this.http.post<RegInterface>('http://localhost/forum.com/requests/autoreg/reg.php', form, this.httpOptions).subscribe(
       (response) => {
-        console.log('Успешный ответ от сервера:', response);
         if(response.message == "Учетная запись успешно создана"){
           this.route.navigate(['/authorization'])
-          alert('Учетная запись успешно создана, теперь войдите в неё!')
+          alert("Great! Now log in to your account.")
         }
         else{
           if(response.message == "Пользователь с таким именем уже существует"){
@@ -58,19 +69,20 @@ export class IsLogService {
     console.log(form)
     this.http.post<Auto>('http://localhost/forum.com/requests/autoreg/auto.php', form, this.httpOptions).subscribe(
       (response)=>{
-        console.log("Ответ от сервера", response);
         if(response.answer == "успех!"){
-          this.profileService.setProfile(response);
           localStorage.setItem('token', response.token);
+          this.profileService.setProfile(this.decoderService.decodeJWT(response.token));
           this.isLog.next(true);
           this.route.navigate(['/profile']);
-
         }
       },
       (error)=>{
-        console.log("ашыбка:", error)
+        console.log("error:", error)
       }
     )
+  }
+  LogOut(){
+
   }
 
 }

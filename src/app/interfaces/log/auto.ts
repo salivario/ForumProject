@@ -1,7 +1,7 @@
 export interface Auto {
     answer: string,
-    id: number,
     token: string;
+    id: number,
     name: string,
     email: string,
     avatar: string,

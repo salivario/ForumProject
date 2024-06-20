@@ -11,7 +11,7 @@ import { Profile } from '../interfaces/profile';
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileResolver implements Resolve<Observable<Profile>>{
+export class ProfileResolver implements Resolve<Profile> {
   constructor(private profileService: ProfileService){}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Profile> {
     return this.profileService.getProfile();

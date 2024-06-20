@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
-import { Observable, map } from 'rxjs';
 import { Profile } from 'src/app/interfaces/profile';
 
 @Component({
@@ -10,10 +9,10 @@ import { Profile } from 'src/app/interfaces/profile';
 })
 export class UserPageComponent implements OnInit{
   constructor(private route: ActivatedRoute){}
-  profile$!: Observable<Profile>;;
+  profile!: Profile;
   ngOnInit(): void {
-    this.profile$ = this.route.data.pipe(
-      map((data: Data) => data['Profile'] as Profile)
-    );
+    this.route.data.subscribe((data: Data) => {
+      this.profile = data['Profile'] as Profile;
+    });
   }
 }

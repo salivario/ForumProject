@@ -1,18 +1,33 @@
-<div *ngIf="profile$ | async as profile">
-    <div>
-        <div class="avatar"></div>
-        <div>
-            <div class="name">{{ profile.name }}</div>
-            <div class="email">{{ profile.email }}</div>
+<div style="display: flex; align-items: center; flex-direction: column; min-width: 100%;">
+    <div style="display: flex; flex-direction: row; justify-content: space-between; border: 2px solid #008000; height: 80px; width: 99%;">
+    <div style="display: flex; flex-direction: row;">
+        <div class="avatar" style="margin-left: 5px; margin-top: 5px;">
+            <img src="../../../../../assets/avatars/{{profile.avatar}}" alt="avatar">
+        </div>
+        <div class="name" style="margin-left: 5px; margin-top: 5px;">
+            {{profile.name}}
         </div>
     </div>
-    <div>
+        <div>
+            <div class="email" style="margin-right: 5px; margin-top: 5px;">
+                {{profile.email}}
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-around; width: 99%; margin: 10px 0 10px 0;">
+        <div style="width: 35%;">
+            <button style="width: 100%; height: 100%; border: #008000 solid 2px;height: 30px; font-size: 19px;background-color: rgba(0, 0, 0, 0);color: #008000; text-transform: uppercase;">edit profile</button> 
+        </div>
+        <div style="width: 35%;">
+            <button style="width: 100%; height: 100%; border: #008000 solid 2px;height: 30px; font-size: 19px;background-color: rgba(0, 0, 0, 0);color: red; text-transform: uppercase;">Delete profile</button>
+        </div>
+    </div>
+    <div style="width: 99%;">
         <div class="countOfMessages">
-            {{ profile.countOfMessages }}
+            Count of messages you wrote of all the time: {{profile.countOfMessages}}
         </div>
         <div class="countOfTreads">
-            {{ profile.countOfTreads }}
+            Count of treads you create of all the time: {{profile.countOfTreads}}
         </div>
     </div>
 </div>
-
