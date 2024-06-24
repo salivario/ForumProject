@@ -2,7 +2,7 @@
     <div style="display: flex; flex-direction: row; justify-content: space-between; border: 2px solid #008000; height: 80px; width: 99%;">
     <div style="display: flex; flex-direction: row;">
         <div class="avatar" style="margin-left: 5px; margin-top: 5px;">
-            <img src="../../../../../assets/avatars/{{profile.avatar}}" alt="avatar">
+            <img src="../../../../../assets/avatars/{{profile.avatar}}.png" alt="avatar">
         </div>
         <div class="name" style="margin-left: 5px; margin-top: 5px;">
             {{profile.name}}
@@ -16,10 +16,10 @@
     </div>
     <div style="display: flex; flex-direction: row; justify-content: space-around; width: 99%; margin: 10px 0 10px 0;">
         <div style="width: 35%;">
-            <button style="width: 100%; height: 100%; border: #008000 solid 2px;height: 30px; font-size: 19px;background-color: rgba(0, 0, 0, 0);color: #008000; text-transform: uppercase;">edit profile</button> 
+            <button routerLink="/profile-edit-delete/edit" style="width: 100%; height: 100%; border: #008000 solid 2px;height: 30px; font-size: 19px;background-color: rgba(0, 0, 0, 0);color: #008000; text-transform: uppercase;">edit profile</button> 
         </div>
         <div style="width: 35%;">
-            <button style="width: 100%; height: 100%; border: #008000 solid 2px;height: 30px; font-size: 19px;background-color: rgba(0, 0, 0, 0);color: red; text-transform: uppercase;">Delete profile</button>
+            <button routerLink="/profile-edit-delete/delete" style="width: 100%; height: 100%; border: #008000 solid 2px;height: 30px; font-size: 19px;background-color: rgba(0, 0, 0, 0);color: red; text-transform: uppercase;">Delete profile</button>
         </div>
     </div>
     <div style="width: 99%;">

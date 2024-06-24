@@ -38,4 +38,7 @@ export class ProfileService {
     }
     return this.profile.asObservable();
   }
+  getAvatarAndName(){
+    return {avatar: this.profileData.avatar, name: this.profileData.name}
+  }
 }

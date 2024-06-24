@@ -18,7 +18,9 @@ const routes: Routes = [
   {path: 'tredlist', component: TopTreadsComponent, resolve: {Tread: GetTredsInfoResolver}},
   {path: 'authorization', component: AutoComponent, canActivate: [LogGuardGuard]},
   {path: 'profile', component: UserPageComponent, canActivate: [ProfileGuard],resolve: {Profile: ProfileResolver}},
-  {path: 'help', component: HelpUsComponent},];
+  {path: 'help', component: HelpUsComponent},
+  { path: 'profile-edit-delete', loadChildren: () => import('./components/lazy-components/profile-edit-delete/edit-del.module').then(m => m.EditDelModule) }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

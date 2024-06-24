@@ -1,0 +1,27 @@
+<div style="width: 100%; min-height: 100%;">
+    <div style="width: 300px; height: 200px; margin: auto;">
+        <form [formGroup]="form">
+            <div>
+                <h1 style="width: 100%; text-transform: uppercase; font-size: 20px; text-align: center;">Change name</h1>
+                <input type="text" formControlName="name" style="border: #008000 solid 2px; background-color: black; color: #008000; width: 242px; height: 24px; margin:auto; display: block;">
+            </div>
+            <div style="margin-top: 10px;">
+                <h1 style="width: 100%; text-transform: uppercase; font-size: 20px; text-align: center;">Change avatar</h1>
+                <div style="width: 100%; ">
+                    <select formControlName="avatar" style="background-color: black; border: 2px solid #008000; color: #008000; width: 250px; height: 30px; display: block; margin: auto;">
+                        <option style="border: #008000 solid 2px; background-color: black;" *ngFor="let option of options" value={{option}}>{{option}}</option>
+                    </select>    
+                </div>
+                <div style="display: flex; flex-direction: row; width: 250px; margin: 25px;">
+                    <div style="width: 200px; text-transform: uppercase; font-size: 20px; text-align: center; margin: auto; height: fit-content;">selected avatar:</div>
+                    <div style="margin-top: 10px; width: 50px; height: 50px;">
+                        <img alt="avatar" src="../../../../../assets/avatars/{{this.form.value.avatar}}.png">
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;">
+                <input type="submit" style="border: #008000 solid 2px; background-color: black; color: #008000; width: 250px; height: 30px; margin:auto; display: block;" onsubmit="submit()">
+            </div>
+        </form>
+    </div>
+</div>
