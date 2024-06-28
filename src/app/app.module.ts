@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { UiModule } from './components/main-components/ui/ui.module';
 import { MainModule } from './components/main-components/main/main.module';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+
+//reducers
 
 @NgModule({
   declarations: [
@@ -16,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     UiModule,
     MainModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

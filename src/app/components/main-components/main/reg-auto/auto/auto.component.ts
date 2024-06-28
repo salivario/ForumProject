@@ -13,8 +13,8 @@ export class AutoComponent implements OnInit{
   form!: FormGroup
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: [],
-      password: []
+      email: ['',[Validators.required,Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
   onSubmit(){

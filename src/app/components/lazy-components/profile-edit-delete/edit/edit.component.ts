@@ -1,6 +1,7 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/services/profile.service';
+
 
 @Component({
   selector: 'app-edit',
@@ -15,9 +16,12 @@ export class EditComponent implements OnInit{
   ngOnInit(){
     this.data = this.profileService.getAvatarAndName()
     this.form = this.FormBuilder.group({
-      name: [this.data.name],
+      name: [this.data.name, [Validators.required, Validators.minLength(3)]],
       avatar: [this.data.avatar],
     }) 
+  }
+  submit(){
+    this.profileService.editProfile(this.form.value)
   }
 
 }

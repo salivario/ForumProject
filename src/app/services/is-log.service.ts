@@ -17,7 +17,6 @@ export class IsLogService {
     if (token) {
       this.profileService.setProfile(this.decoderService.decodeJWT(token));
       this.isLog.next(true);
-      this.route.navigate(['/profile']);
     }
    }
   isLog = new BehaviorSubject<boolean>(false)
@@ -25,7 +24,6 @@ export class IsLogService {
   private tokenKey = 'token';
   formdata(form: FormObject){
     this.saveform = form
-    console.log(this.saveform)
     this.setLog(form)
   }
 
@@ -45,12 +43,12 @@ export class IsLogService {
       (response) => {
         if(response.message == "Учетная запись успешно создана"){
           this.route.navigate(['/authorization'])
-          alert("Great! Now log in to your account.")
+          alert("Great! Now log in into your account.")
         }
         else{
           if(response.message == "Пользователь с таким именем уже существует"){
             this.route.navigate(['/registration'])
-            alert("Пользователь с таким именем уже существует")
+            alert("User with this name alredy exist")
           }
         }
       },
@@ -66,7 +64,6 @@ export class IsLogService {
     return this.isLog.getValue()
   }
   autorise(form: FormObject){
-    console.log(form)
     this.http.post<Auto>('http://localhost/forum.com/requests/autoreg/auto.php', form, this.httpOptions).subscribe(
       (response)=>{
         if(response.answer == "успех!"){

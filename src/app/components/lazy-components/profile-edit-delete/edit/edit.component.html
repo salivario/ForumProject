@@ -1,6 +1,6 @@
 <div style="width: 100%; min-height: 100%;">
     <div style="width: 300px; height: 200px; margin: auto;">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="submit()">
             <div>
                 <h1 style="width: 100%; text-transform: uppercase; font-size: 20px; text-align: center;">Change name</h1>
                 <input type="text" formControlName="name" style="border: #008000 solid 2px; background-color: black; color: #008000; width: 242px; height: 24px; margin:auto; display: block;">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div style="margin-top: 10px;">
-                <input type="submit" style="border: #008000 solid 2px; background-color: black; color: #008000; width: 250px; height: 30px; margin:auto; display: block;" onsubmit="submit()">
+                <input [disabled]="form.invalid" type="submit" style="border: #008000 solid 2px; background-color: black; color: #008000; width: 250px; height: 30px; margin:auto; display: block;">
             </div>
         </form>
     </div>
