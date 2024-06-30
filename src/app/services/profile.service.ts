@@ -49,7 +49,7 @@ export class ProfileService {
   }
 
   getAvatarAndName(){
-    return {avatar: this.profileData.avatar, name: this.profileData.name}
+    return {avatar: this.profile.value.avatar, name: this.profile.value.name}
   }
   editProfile(form:Edit){
     this.http.patch("http://localhost/forum.com/Profile/editProfile.php", form).subscribe(

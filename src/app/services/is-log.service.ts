@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { RegInterface } from '../interfaces/log/response-interface';
 import { DecoderService } from './decoder.service';
+import { DeleteForm } from '../interfaces/delete-form';
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +81,25 @@ export class IsLogService {
   }
   LogOut(){
 
+  }
+
+  deleteProfile(form: DeleteForm){
+    this.http.post<string>('http://localhost/forum.com/requests/Profile/deleteProfile.php', {form}).subscribe(
+      (response)=>{
+        alert(response)
+        if(response == 'We send confirmation message on your mail'){
+          this.isLog.next(false);
+          localStorage.removeItem('token')
+          this.route.navigate(['/registration'])
+        }
+        if(response == 'Incorrect name or password'){
+          this.route.navigate(['/delete'])
+        }
+      },
+      (error)=>{
+        console.log("Something went wrong: " + error)
+      }
+    )
   }
 
 }
