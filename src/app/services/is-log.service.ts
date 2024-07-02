@@ -84,15 +84,15 @@ export class IsLogService {
   }
 
   deleteProfile(form: DeleteForm){
-    this.http.post<string>('http://localhost/forum.com/requests/Profile/deleteProfile.php', {form}).subscribe(
+    this.http.post<any>('http://localhost/forum.com/Profile/deleteProfile.php', form).subscribe(
       (response)=>{
-        alert(response)
-        if(response == 'We send confirmation message on your mail'){
+        alert(response.message)
+        if(response.message == 'We send confirmation message on your mail'){
           this.isLog.next(false);
           localStorage.removeItem('token')
           this.route.navigate(['/registration'])
         }
-        if(response == 'Incorrect name or password'){
+        if(response.message == 'Incorrect name or password'){
           this.route.navigate(['/delete'])
         }
       },
