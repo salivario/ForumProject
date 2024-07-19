@@ -1,1 +1,57 @@
-<p>admin-panel works!</p>
+<div style="width: 100%; height: 100%; margin: auto;">
+    <div id="maincontainer">
+        <div class="innercontainer" style="margin-bottom: 30px;">
+            <div class="container">
+                <h1>Search user</h1>
+                <form [formGroup]="form1">
+                    <h1>More info, more chance to find user what you looking for!</h1>
+                    <h1>But, also you can write only one of this parameters.</h1>
+                    <div style="display: flex; flex-direction: column;">
+                        <div><input type="text" placeholder="name"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="container">
+                <h1>Get user treads and messages</h1>
+                <form [formGroup]="form2">
+                    <h1>You can find user treads only by autor name.</h1>
+                    <input type="text" placeholder="name">
+                </form>
+            </div>
+        </div>
+        <div class="innercontainer">
+            <div class="container">
+                <h1>Ban user.</h1>
+                <form [formGroup]="form3">
+                    <h1>Write user id in first line.</h1>
+                    <input type="text" placeholder="id">
+                    <h1>Second line its time, when user will get freedom</h1>
+                    <div>
+                        <div style="display: flex; flex-direction: column;">
+                            <div style="font-size: 15px;">switch to text field</div>
+                            <div><button (click)="switch = !switch">Alternative</button></div>
+                        </div>
+                        <div>
+                            <input type="date" *ngIf="switch">
+                            <input type="text" *ngIf="!switch" placeholder="00.00.0000">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="reason?">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="container">
+                <div [ngSwitch]="status">
+                    <ng-template [ngSwitchCase]="'admin'"  style="margin: auto; width: 200px; height: 100%; margin-top: 25%;"><h1>You have not rights for this!</h1></ng-template>
+                    <ng-template [ngSwitchCase]="'superadmin'">
+                        <h1>Only for super admins</h1>
+                        <form [formGroup]="form4">
+                            <h1>Change status of admin</h1>
+                        </form>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

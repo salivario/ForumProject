@@ -1,0 +1,16 @@
+<div [ngSwitch]="info">
+    <ng-template ngSwitchCase="search">
+        <div>
+            <div>
+                <div><h1>{{info.id}}</h1></div>
+                <div><h1>{{info.name}}</h1></div>
+                <div><h1>{{info.email}}</h1></div>
+                <div><h1>{{info.countOfMessages}}</h1></div>
+                <div><h1>{{info.countOfTreads}}</h1></div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template ngSwitchCase="usertreads"></ng-template>
+    <ng-template ngSwitchCase="usermessages"></ng-template>
+    <ng-template ngSwitchDefault>Something went wrong</ng-template>
+  </div>

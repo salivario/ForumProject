@@ -14,7 +14,8 @@ export class UserPageComponent implements OnInit{
   ngOnInit(): void {
     this.route.data.subscribe((data: Data) => {
       this.profile = data['Profile'];
-      this.loading = false
-    });
+      this.loading = false;
+    }
+    );
   }
 }

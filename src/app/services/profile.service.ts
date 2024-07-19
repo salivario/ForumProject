@@ -17,6 +17,7 @@ export class ProfileService {
   constructor(private http: HttpClient, private decoderService: DecoderService, private route: Router) { }
   profile = new BehaviorSubject<Profile>({    
     id: 0,
+    status: 'user',
     name: "anonim",
     email: "anonim",
     avatar: "newbie",

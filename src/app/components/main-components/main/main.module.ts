@@ -7,6 +7,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { HelpUsComponent } from './help-us/help-us.component';
 import { RouterModule } from '@angular/router';
 import { GetTredsInfoResolver } from 'src/app/resolvers/get-treds-info.resolver';
+import { CurTreadComponent } from './cur-tread/cur-tread.component';
 
 
 
@@ -16,6 +17,7 @@ import { GetTredsInfoResolver } from 'src/app/resolvers/get-treds-info.resolver'
     TopTreadsComponent,
     UserPageComponent,
     HelpUsComponent,
+    CurTreadComponent,
     
   ],
   imports: [

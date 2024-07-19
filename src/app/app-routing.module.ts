@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'profile', component: UserPageComponent, canActivate: [ProfileGuard],resolve: {Profile: ProfileResolver}},
   {path: 'help', component: HelpUsComponent},
   { path: 'profile-edit-delete', loadChildren: () => import('./components/lazy-components/profile-edit-delete/edit-del.module').then(m => m.EditDelModule) },
-  { path: 'admin', loadChildren: () => import('./components/lazy-components//admin/admin.module').then(m => m.AdminModule) }
+  { path: 'admin', loadChildren: () => import('./components/lazy-components/admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({
