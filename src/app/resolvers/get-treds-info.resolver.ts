@@ -13,10 +13,13 @@ import { PathService } from '../services/path.service';
 })
 export class GetTredsInfoResolver implements Resolve<any> {
   constructor(private http: HttpClient, private pathService: PathService, private route: Router){}
+  urlString = '';
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    const urlString = '';
-    const curPath = this.pathService.getTheme();
-    const urlWithParameters = `${urlString}?theme=${curPath}`;
+    this.urlString = "http://localhost/forum.com/treads/getTreadsList.php";
+    
+    const curPath = this.pathService.getTheme(); 
+    const urlWithParameters = `${this.urlString}?theme=${curPath}`;
+
     return this.http.get(urlWithParameters).pipe(
       map((response) => {
         return { success: true, data: response };

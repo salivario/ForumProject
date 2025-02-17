@@ -8,8 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TopTreadsComponent implements OnInit{
   constructor(private route: ActivatedRoute){}
+
+  treads: any;
   ngOnInit(): void {
-    const data = this.route.snapshot.data['getTredsInfo'];
-    console.log(data);
+    const data = this.route.snapshot.data['Tread'];
+    this.treads = data.data;
   }
 }
