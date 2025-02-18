@@ -1,0 +1,26 @@
+.link:visited{
+    color: #008000;
+}
+.link:visited:hover{
+    color: black;
+}
+.link{
+    color: green;
+}
+
+.brd:hover{
+    background-color: rgb(16, 196, 16);
+    color: black;
+}
+.brd:hover{
+    .link{
+        color: black;
+    }
+    .link:visited{
+        color: black;
+    }
+}
+
+.tread-block {
+
+}

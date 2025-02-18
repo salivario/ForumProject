@@ -1,21 +1,9 @@
 <div>
-    <div>
-        <div *ngIf="true">
-            <form>
-                <div>
-                    <h1>Create your own tread</h1>
-                </div>
-                <div>
-                    <div class="tread-creation-class"><input type="text" placeholder="Header"></div>
-                    <div class="tread-creation-class"><input type="text" placeholder="Description"></div>
-                    <div class="tread-creation-class"><textarea placeholder="Text"></textarea></div>
-                </div>
-            </form>
+    <div class="tread-block" *ngFor="let tread of treads">  
+        <div class="brd">
+            <div style="margin-top: 10px;"><a class="link" routerLink="/tredlist">→{{tread.theme}}</a></div>
+            <div><p>{{tread.description}}</p></div>
         </div>
     </div>
-    <div>  
-        <div>
 
-        </div>
-    </div>
 </div>
